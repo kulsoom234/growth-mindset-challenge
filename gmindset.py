@@ -27,7 +27,8 @@ st.write("Transform your files between CSV and Excel formats with built-in data 
 uploaded_files = st.file_uploader("Upload your files (accepts CSV or Excel):", type=["csv", "xlsx"], accept_multiple_files=(True))
 
 if uploaded_files:
-    for file in uploaded_files:
+    for file in uploaded_files is not None:
+        df = pd.read_csv(uploaded_files)
         file_ext = os.path.splitext(file.name)[-1].lower()
 
         if file_ext == ".csv":
