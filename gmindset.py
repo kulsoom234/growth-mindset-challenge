@@ -59,7 +59,6 @@ if uploaded_files:
                 df[numeric_cols] = df[numeric_cols].fillna(df[numeric_cols].mean())
                 st.write("Missing values has been filled!")
 
-
 st.subheader(" Select columns to keep")
 columns = st.multiselect(f"Choose Columns for {uploaded_files}", df.columns, default=df.columns)
 st.write("Selected columns data:")
