@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
-from io import BytesIo
+from io import BytesIO
 
 st.set_page_config(page_title= "Data Sweeper", layout='wide' )
 
@@ -73,7 +73,7 @@ if st.checkbox(f" Show Visualization for {file.name}"):
 st.subheader("Conversion Options")
 conversion_type = st.radio(f"convert {file.name} to :" , ["CSV" , "Excel"], key=file.name)
 if st.button(f"Convert{file.name}"):
-    buffer = BytesIo()
+    buffer = BytesIO()
     if conversion_type == "CSV":
         df.to.csv(buffer, index=False)
         file_name = file.name.replace(file_ext, ".csv")
