@@ -61,7 +61,8 @@ if uploaded_files:
 
 st.subheader(" Select columns to keep")
 columns = st.multiselect(f"Choose Columns for {uploaded_files}", df.columns, default=df.columns)
-df = df[columns]
+st.write("Selected columns data:")
+st.write(df[columns])
 
 # Data visualization
 st.subheader(" Data Visualization")
